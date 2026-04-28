@@ -535,6 +535,32 @@ h1 {
   font-weight: 800;
 }
 
+.error-page {
+  min-height: 100svh;
+}
+
+.error-shell {
+  display: grid;
+  min-height: 100svh;
+  align-content: center;
+  gap: 54px;
+  padding: 42px 0;
+}
+
+.error-copy {
+  display: grid;
+  max-width: 680px;
+  gap: 22px;
+}
+
+.error-copy h1 {
+  font-size: 4.2rem;
+}
+
+.error-copy .lead {
+  margin: 0;
+}
+
 @media (width <= 960px) {
   .topbar {
     grid-template-columns: 1fr auto;

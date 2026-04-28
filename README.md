@@ -20,6 +20,8 @@ This stack is intentionally simple for the first version: fewer moving parts, fa
 - `app.js` - rendering and topic filters.
 - `data/digest.js` - replaceable daily digest data.
 - `.nojekyll` - tells GitHub Pages to publish files as plain static assets.
+- `robots.txt` and `sitemap.xml` - basic search indexing metadata.
+- `404.html` - custom GitHub Pages not-found page.
 
 ## Development
 
