@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>NewsAI — Архив выпусков</title>
+    <meta
+      name="description"
+      content="Архив всех выпусков NewsAI — ежедневного русскоязычного дайджеста AI-новостей."
+    />
+    <link rel="canonical" href="https://dzhamshedi.github.io/newsai-site/issues/" />
+    <meta name="theme-color" content="#17201c" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .archive-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .archive-card {
+        display: block;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid var(--border, #e5e7eb);
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.15s;
+      }
+
+      .archive-card:hover {
+        border-color: var(--accent, #17201c);
+      }
+
+      .archive-card-date {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted, #6b7280);
+        margin-bottom: 0.4rem;
+      }
+
+      .archive-card-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.35;
+        margin-bottom: 0.5rem;
+      }
+
+      .archive-card-summary {
+        font-size: 0.875rem;
+        line-height: 1.55;
+        color: var(--muted, #6b7280);
+      }
+
+      .archive-empty {
+        text-align: center;
+        color: var(--muted, #6b7280);
+        padding: 4rem 1rem;
+      }
+
+      .archive-header {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 0;
+      }
+
+      .archive-header h1 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .archive-header p {
+        color: var(--muted, #6b7280);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="NewsAI">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span class="brand-copy">
+          <strong>NewsAI</strong>
+          <span>daily intelligence</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основные разделы">
+        <a href="../">Последний выпуск</a>
+        <a href="./" aria-current="page">Архив</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="archive-header">
+        <div class="section-kicker">Архив</div>
+        <h1>Все выпуски</h1>
+        <p>Каждый выпуск доступен по постоянной ссылке.</p>
+      </div>
+      <div class="archive-grid" id="archive-grid">
+        <p class="archive-empty">Загрузка...</p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>NewsAI</span>
+      <span>Русскоязычный ежедневный AI-дайджест.</span>
+    </footer>
+
+    <script>
+      (function () {
+        var grid = document.getElementById("archive-grid");
+
+        fetch("../data/archive.json")
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (data) {
+            var issues = (data.issues || []).slice().reverse();
+            if (!issues.length) {
+              grid.innerHTML =
+                '<p class="archive-empty">Выпусков пока нет.</p>';
+              return;
+            }
+            grid.innerHTML = issues
+              .map(function (issue) {
+                return (
+                  '<a class="archive-card" href="' +
+                  escUrl(issue.url) +
+                  '">' +
+                  '<div class="archive-card-date">' +
+                  esc(issue.dateLabel) +
+                  "</div>" +
+                  '<div class="archive-card-title">' +
+                  esc(issue.title) +
+                  "</div>" +
+                  '<div class="archive-card-summary">' +
+                  esc(issue.summary) +
+                  "</div>" +
+                  "</a>"
+                );
+              })
+              .join("");
+          })
+          .catch(function () {
+            grid.innerHTML =
+              '<p class="archive-empty">Не удалось загрузить архив. Попробуйте позже.</p>';
+          });
+
+        function esc(str) {
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+        }
+
+        function escUrl(url) {
+          return esc(url).replace(/javascript:/gi, "");
+        }
+      })();
+    </script>
+  </body>
+</html>

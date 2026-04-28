@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-04-29",
+  "groups": [
+    {
+      "id": "labs",
+      "label": "Официальные блоги лабораторий",
+      "priority": 1,
+      "sources": [
+        {
+          "name": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/articles",
+          "type": "articles"
+        },
+        { "name": "OpenAI Blog", "url": "https://openai.com/blog", "type": "blog" },
+        { "name": "Google DeepMind Blog", "url": "https://deepmind.google/blog/", "type": "blog" },
+        { "name": "Google Research Blog", "url": "https://research.google/blog/", "type": "blog" },
+        { "name": "Anthropic Blog", "url": "https://www.anthropic.com/news", "type": "blog" },
+        { "name": "Meta AI Blog", "url": "https://ai.meta.com/blog/", "type": "blog" },
+        { "name": "xAI Blog", "url": "https://x.ai/blog", "type": "blog" },
+        {
+          "name": "Microsoft Research Blog",
+          "url": "https://www.microsoft.com/en-us/research/blog/",
+          "type": "blog"
+        },
+        { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog", "type": "blog" },
+        { "name": "BAIR Blog", "url": "https://bair.berkeley.edu/blog/", "type": "blog" }
+      ]
+    },
+    {
+      "id": "news",
+      "label": "Новостные и аналитические издания",
+      "priority": 2,
+      "sources": [
+        {
+          "name": "MIT Technology Review AI",
+          "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+          "type": "news"
+        },
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/tag/artificial-intelligence/",
+          "type": "news"
+        },
+        { "name": "VentureBeat AI", "url": "https://venturebeat.com/ai/", "type": "news" },
+        { "name": "The Rundown AI", "url": "https://www.therundown.ai/", "type": "newsletter" },
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "type": "news"
+        },
+        { "name": "Ars Technica AI", "url": "https://arstechnica.com/ai/", "type": "news" },
+        { "name": "MarkTechPost", "url": "https://www.marktechpost.com/", "type": "news" },
+        { "name": "AI Magazine", "url": "https://aimagazine.com/", "type": "news" }
+      ]
+    },
+    {
+      "id": "newsletters",
+      "label": "Дайджесты и рассылки",
+      "priority": 3,
+      "sources": [
+        { "name": "Ben's Bites", "url": "https://bensbites.com/", "type": "newsletter" },
+        { "name": "TLDR AI", "url": "https://tldr.tech/ai", "type": "newsletter" },
+        { "name": "AlphaSignal", "url": "https://alphasignal.ai/", "type": "newsletter" },
+        { "name": "The Neuron", "url": "https://www.theneuron.ai/", "type": "newsletter" },
+        { "name": "Last Week in AI", "url": "https://lastweekin.ai/", "type": "newsletter" },
+        { "name": "Import AI", "url": "https://importai.substack.com/", "type": "newsletter" },
+        { "name": "Simon Willison's Blog", "url": "https://simonwillison.net/", "type": "blog" }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Исследования и препринты",
+      "priority": 4,
+      "sources": [
+        {
+          "name": "Hugging Face Daily Papers",
+          "url": "https://huggingface.co/papers",
+          "type": "papers"
+        },
+        { "name": "Papers with Code", "url": "https://paperswithcode.com/", "type": "papers" },
+        { "name": "arXiv cs.AI", "url": "https://arxiv.org/list/cs.AI/recent", "type": "papers" },
+        { "name": "arXiv cs.LG", "url": "https://arxiv.org/list/cs.LG/recent", "type": "papers" },
+        { "name": "ArXiv Pulse", "url": "https://www.arxivpulse.com/", "type": "papers" }
+      ]
+    },
+    {
+      "id": "community",
+      "label": "Сообщества и агрегаторы",
+      "priority": 5,
+      "sources": [
+        {
+          "name": "Hacker News AI",
+          "url": "https://news.ycombinator.com/",
+          "type": "community",
+          "searchQuery": "AI OR LLM OR machine learning"
+        },
+        {
+          "name": "a16z AI",
+          "url": "https://a16z.com/category/artificial-intelligence/",
+          "type": "blog"
+        },
+        { "name": "LessWrong", "url": "https://www.lesswrong.com/", "type": "community" },
+        { "name": "KDnuggets", "url": "https://www.kdnuggets.com/", "type": "news" }
+      ]
+    }
+  ]
+}

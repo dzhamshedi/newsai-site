@@ -12,21 +12,25 @@
 Прочитай `data/memory/state.json`. Если `lastPublishedIssue.date` уже сегодня (Europe/Moscow) — остановись и сообщи об этом. Если `lastRun.status` равен `running` — остановись.
 
 **Шаг 2 — Собери новости**
-Открой браузер и перейди на следующие источники. На каждом найди статьи/новости за последние 24–48 часов:
+Прочитай `data/sources.json` — там список всех источников, разбитый на группы по приоритету. Начинай с группы `labs` (приоритет 1), затем `news` (2), затем остальные.
+
+На каждом источнике ищи материалы за последние 24–48 часов. В первую очередь смотри:
 
 - https://artificialanalysis.ai/articles
 - https://openai.com/blog
 - https://anthropic.com/news
-- https://deepmind.google/discover/blog
+- https://deepmind.google/blog/
 - https://theverge.com/ai-artificial-intelligence
 - https://techcrunch.com/category/artificial-intelligence
+- https://venturebeat.com/ai/
+- https://huggingface.co/blog
 
 Для каждой найденной новости зафикси:
 
 - Заголовок оригинала
 - URL статьи (точный, без UTM-параметров)
 - Дата публикации
-- Источник (название сайта)
+- Источник (название из `data/sources.json`)
 - Краткое содержание (2–3 предложения на английском)
 - Тема: `products` / `policy` / `research` / `market`
 
@@ -73,15 +77,14 @@
 
 ```js
 window.NEWSAI_DIGEST = {
-  dateLabel: "DD месяц YYYY",         // например, "29 апреля 2026"
+  dateLabel: "DD месяц YYYY", // например, "29 апреля 2026"
   label: "Ежедневный выпуск",
-  title: "...",                        // заголовок выпуска (главная тема дня)
-  summary: "...",                      // 1–2 предложения о выпуске
-  caption: "...",                      // подпись к hero-картинке
-  sources: ["Источник1", ...],
+  title: "...", // заголовок выпуска (главная тема дня)
+  summary: "...", // 1–2 предложения о выпуске
+  caption: "...", // подпись к hero-картинке
+  sources: ["Источник1"],
   radar: [
-    { value: "...", label: "..." },    // 3 элемента
-    ...
+    { value: "...", label: "..." } // 3 элемента
   ],
   lead: {
     topic: "products|policy|research|market",
@@ -90,7 +93,7 @@ window.NEWSAI_DIGEST = {
     title: "...",
     summary: "...",
     url: "https://...",
-    image: "https://...",              // Unsplash или оригинальный thumbnail
+    image: "https://...", // Unsplash или оригинальный thumbnail
     imageAlt: "..."
   },
   items: [
@@ -102,19 +105,43 @@ window.NEWSAI_DIGEST = {
       url: "https://...",
       image: "https://...",
       imageAlt: "..."
-    },
-    ...                                // 3–6 элементов
+    }
+    // 3–6 элементов
   ],
   signals: [
-    { title: "...", summary: "..." },  // 3 элемента
-    ...
+    { title: "...", summary: "..." } // 3 элемента
   ]
 };
 ```
 
 **Изображения**: используй thumbnail из JSON-LD на странице статьи (поле `image` в `@type: NewsArticle`) или Unsplash. Не используй изображения без явного URL.
 
-**Шаг 9 — Обнови файлы памяти**
+**Шаг 9 — Архивируй выпуск**
+После того как `data/digest.js` записан, создай архивную копию.
+
+Переменная `DATE` = дата выпуска в формате `YYYY-MM-DD` (например, `2026-04-29`).
+
+1. Создай папку `issues/DATE/` (если не существует).
+2. Скопируй `data/digest.js` → `issues/DATE/digest.js`.
+3. Создай `issues/DATE/index.html` — скопируй структуру из уже существующего
+   `issues/2026-04-28/index.html`, заменив:
+   - `<title>` на `NewsAI — DD месяц YYYY`
+   - `<meta name="description">` на актуальное описание выпуска
+   - `<link rel="canonical">` на `https://dzhamshedi.github.io/newsai-site/issues/DATE/`
+   - og/twitter теги — title, description, url
+4. Обнови `data/archive.json` — добавь новую запись в массив `issues`:
+   ```json
+   {
+     "id": "daily-DATE",
+     "date": "DATE",
+     "dateLabel": "DD месяц YYYY",
+     "title": "...",
+     "summary": "...",
+     "url": "/newsai-site/issues/DATE/"
+   }
+   ```
+
+**Шаг 10 — Обнови файлы памяти**
 
 - `data/memory/state.json` — обнови `lastRun` и `lastPublishedIssue`
 - `data/memory/runs.json` — добавь новую запись (append)
@@ -122,17 +149,17 @@ window.NEWSAI_DIGEST = {
 
 Формат дат: `YYYY-MM-DD` для дат, ISO 8601 с `+03:00` для timestamp.
 
-**Шаг 10 — Проверь и запушь**
+**Шаг 11 — Проверь и запушь**
 
 ```bash
 cd newsai-site && npm run lint
 ```
 
-Если проверки прошли — коммить и пушь. Если нет — исправь и повтори.
+Если проверки прошли — коммитти и пушь. Если нет — исправь и повтори.
 
 ```bash
-git add data/digest.js data/memory/
-git commit -m "feat: daily digest YYYY-MM-DD"
+git add data/digest.js data/archive.json data/memory/ issues/DATE/
+git commit -m "feat: daily digest DATE"
 git push origin main
 ```
 
@@ -147,3 +174,4 @@ git push origin main
 - Если за день нет значимых новостей — лучше пропустить выпуск
 - Все числа и факты должны быть из оригинального источника, не выдуманы
 - Проверяй даты: берём новости за последние 48 часов, не старше
+- Источники ищи в `data/sources.json`, приоритет — группа `labs`, затем `news`

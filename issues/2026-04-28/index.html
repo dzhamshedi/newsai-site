@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>NewsAI — 28 апреля 2026</title>
+    <meta
+      name="description"
+      content="NewsAI выпуск от 28 апреля 2026: GPT-5.5 возглавил рейтинг, DeepSeek вернулся."
+    />
+    <link rel="canonical" href="https://dzhamshedi.github.io/newsai-site/issues/2026-04-28/" />
+    <meta name="theme-color" content="#17201c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NewsAI" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:title" content="NewsAI — 28 апреля 2026" />
+    <meta
+      property="og:description"
+      content="GPT-5.5 возглавил рейтинг, DeepSeek вернулся. Три крупных релиза за неделю."
+    />
+    <meta property="og:url" content="https://dzhamshedi.github.io/newsai-site/issues/2026-04-28/" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=630&q=80"
+    />
+    <meta property="og:image:alt" content="Абстрактная визуализация нейросетевой структуры" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NewsAI — 28 апреля 2026" />
+    <meta
+      name="twitter:description"
+      content="GPT-5.5 возглавил рейтинг, DeepSeek вернулся. Три крупных релиза за неделю."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=630&q=80"
+    />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="../../" aria-label="NewsAI">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span class="brand-copy">
+          <strong>NewsAI</strong>
+          <span>daily intelligence</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основные разделы">
+        <a href="#digest">Дайджест</a>
+        <a href="#signals">Сигналы</a>
+        <a href="#sources">Источники</a>
+        <a href="../../issues/">Архив</a>
+      </nav>
+
+      <div class="issue-pill" id="issue-date">Выпуск</div>
+    </header>
+
+    <main>
+      <section class="issue-shell" id="digest">
+        <div class="issue-copy">
+          <p class="eyebrow" id="issue-label">Ежедневный выпуск</p>
+          <h1 id="issue-title">AI-новости без шума, по-русски и с контекстом</h1>
+          <p class="lead" id="issue-summary">
+            Короткая главная страница для ежедневной подборки: что произошло, почему это важно и
+            куда смотреть дальше.
+          </p>
+          <div class="issue-actions" aria-label="Фильтры выпуска">
+            <button class="filter is-active" type="button" data-topic="all">Все</button>
+            <button class="filter" type="button" data-topic="products">Продукты</button>
+            <button class="filter" type="button" data-topic="policy">Регулирование</button>
+            <button class="filter" type="button" data-topic="research">Исследования</button>
+            <button class="filter" type="button" data-topic="market">Рынок</button>
+          </div>
+        </div>
+
+        <figure class="lead-visual">
+          <img
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80"
+            alt="Абстрактная визуализация нейросетевой структуры"
+            loading="eager"
+          />
+          <figcaption id="issue-caption">Фокус выпуска</figcaption>
+        </figure>
+      </section>
+
+      <section class="content-grid" aria-label="Материалы выпуска">
+        <section class="lead-story" aria-labelledby="lead-story-title">
+          <div class="section-kicker">Главное</div>
+          <article class="headline-card" id="lead-story"></article>
+        </section>
+
+        <aside class="issue-panel" aria-label="Сводка выпуска">
+          <div>
+            <div class="section-kicker">Радар</div>
+            <dl class="radar-list" id="radar-list"></dl>
+          </div>
+          <div class="source-strip" id="sources">
+            <div class="section-kicker">Источники</div>
+            <div class="source-list" id="source-list"></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="news-section" aria-labelledby="news-title">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Лента</div>
+            <h2 id="news-title">Коротко по темам</h2>
+          </div>
+          <p id="news-count">0 материалов</p>
+        </div>
+        <div class="news-grid" id="news-grid"></div>
+      </section>
+
+      <section class="signals-section" id="signals" aria-labelledby="signals-title">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Сигналы</div>
+            <h2 id="signals-title">Что отслеживать дальше</h2>
+          </div>
+        </div>
+        <div class="signal-grid" id="signal-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>NewsAI</span>
+      <span>Русскоязычный ежедневный AI-дайджест.</span>
+    </footer>
+
+    <script src="./digest.js"></script>
+    <script src="../../app.js"></script>
+  </body>
+</html>
