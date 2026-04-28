@@ -43,7 +43,10 @@ const lines = [
   `Issue items: ${lastIssue?.itemCount ?? 0}`,
   "",
   `Known published items: ${publishedItems.items.length}`,
-  `Total runs: ${runs.runs.length}`
+  `Total runs: ${runs.runs.length}`,
+  "",
+  "Recent published titles:",
+  ...publishedItems.items.slice(-5).map((item) => `- ${item.title}`)
 ];
 
 console.log(lines.join("\n"));

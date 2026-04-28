@@ -11,7 +11,9 @@
       "topic": "products",
       "sourceName": "Демо-источник",
       "sourceUrl": "https://example.com",
+      "sourceCanonicalUrl": "https://example.com/",
       "title": "Агенты становятся главным интерфейсом для рабочих AI-продуктов",
+      "normalizedTitle": "агенты становятся главным интерфейсом для рабочих ai продуктов",
       "isDemo": true
     },
     {
@@ -23,7 +25,9 @@
       "topic": "policy",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "Регуляторы уточняют требования к маркировке AI-контента",
+      "normalizedTitle": "регуляторы уточняют требования к маркировке ai контента",
       "isDemo": true
     },
     {
@@ -35,7 +39,9 @@
       "topic": "research",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "Новые модели учатся лучше работать с длинным контекстом",
+      "normalizedTitle": "новые модели учатся лучше работать с длинным контекстом",
       "isDemo": true
     },
     {
@@ -47,7 +53,9 @@
       "topic": "market",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "Корпоративный спрос смещается к частным AI-инфраструктурам",
+      "normalizedTitle": "корпоративный спрос смещается к частным ai инфраструктурам",
       "isDemo": true
     },
     {
@@ -59,7 +67,9 @@
       "topic": "products",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "AI-поиск становится частью редакционных и аналитических процессов",
+      "normalizedTitle": "ai поиск становится частью редакционных и аналитических процессов",
       "isDemo": true
     },
     {
@@ -71,7 +81,9 @@
       "topic": "research",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "Оценка качества ответов переходит к сценарным тестам",
+      "normalizedTitle": "оценка качества ответов переходит к сценарным тестам",
       "isDemo": true
     },
     {
@@ -83,7 +95,9 @@
       "topic": "policy",
       "sourceName": "Демо-источник",
       "sourceUrl": null,
+      "sourceCanonicalUrl": null,
       "title": "Вопрос авторских прав остается главным риском для медиа-AI",
+      "normalizedTitle": "вопрос авторских прав остается главным риском для медиа ai",
       "isDemo": true
     }
   ]
