@@ -5,7 +5,7 @@ Static GitHub Pages site for a Russian-language daily AI news digest.
 ## Stack
 
 - Plain HTML, CSS, and vanilla JavaScript.
-- No build step and no npm dependencies.
+- No build step and no runtime npm dependencies.
 - GitHub Pages can serve the repository root directly.
 - Daily automation updates `data/digest.js` and commits the generated issue.
 - Development checks use ESLint, Stylelint, HTMLHint, and Prettier.
