@@ -64,12 +64,14 @@
 
   function renderRadar() {
     radarList.innerHTML = digest.radar
-      .map((item) => `
+      .map(
+        (item) => `
         <div>
           <dt>${item.value}</dt>
           <dd>${item.label}</dd>
         </div>
-      `)
+      `
+      )
       .join("");
   }
 
@@ -80,13 +82,15 @@
   }
 
   function renderNews() {
-    const items = activeTopic === "all"
-      ? digest.items
-      : digest.items.filter((item) => item.topic === activeTopic);
+    const items =
+      activeTopic === "all"
+        ? digest.items
+        : digest.items.filter((item) => item.topic === activeTopic);
 
     newsCount.textContent = `${items.length} ${items.length === 1 ? "материал" : "материалов"}`;
     newsGrid.innerHTML = items
-      .map((item) => `
+      .map(
+        (item) => `
         <article class="news-card">
           <img src="${item.image}" alt="${item.imageAlt}">
           <div class="news-card-body">
@@ -98,19 +102,22 @@
             <p>${item.summary}</p>
           </div>
         </article>
-      `)
+      `
+      )
       .join("");
   }
 
   function renderSignals() {
     signalGrid.innerHTML = digest.signals
-      .map((item) => `
+      .map(
+        (item) => `
         <article class="signal-card">
           <span class="signal-accent" aria-hidden="true"></span>
           <h3>${item.title}</h3>
           <p>${item.summary}</p>
         </article>
-      `)
+      `
+      )
       .join("");
   }
 

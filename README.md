@@ -8,6 +8,8 @@ Static GitHub Pages site for a Russian-language daily AI news digest.
 - No build step and no npm dependencies.
 - GitHub Pages can serve the repository root directly.
 - Daily automation updates `data/digest.js` and commits the generated issue.
+- Development checks use ESLint, Stylelint, HTMLHint, and Prettier.
+- GitHub Actions runs the same checks on pushes and pull requests.
 
 This stack is intentionally simple for the first version: fewer moving parts, faster publishing, and easier automation from Codex/Desktop tools.
 
@@ -18,6 +20,26 @@ This stack is intentionally simple for the first version: fewer moving parts, fa
 - `app.js` - rendering and topic filters.
 - `data/digest.js` - replaceable daily digest data.
 - `.nojekyll` - tells GitHub Pages to publish files as plain static assets.
+
+## Development
+
+Install local tooling:
+
+```bash
+npm install
+```
+
+Run all checks:
+
+```bash
+npm run lint
+```
+
+Format files:
+
+```bash
+npm run format
+```
 
 ## GitHub Pages Setup
 
