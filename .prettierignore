@@ -1,2 +1,4 @@
 node_modules/
 .git/
+# Prettier corrupts Cyrillic text in HTML files (encoding bug in v3.x)
+**/*.html
