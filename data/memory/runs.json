@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-04-28T23:17:14+03:00",
+  "runs": [
+    {
+      "runId": "bootstrap-2026-04-28",
+      "type": "bootstrap",
+      "status": "completed",
+      "trigger": "manual",
+      "agent": "codex",
+      "startedAt": "2026-04-28T23:17:14+03:00",
+      "finishedAt": "2026-04-28T23:17:14+03:00",
+      "inputPaths": ["data/digest.js"],
+      "outputPaths": [
+        "data/memory/state.json",
+        "data/memory/runs.json",
+        "data/memory/published-items.json"
+      ],
+      "publishedIssueId": "demo-2026-04-28",
+      "publishedItemIds": [
+        "demo-2026-04-28-lead-agents-interface",
+        "demo-2026-04-28-policy-ai-labeling",
+        "demo-2026-04-28-research-long-context",
+        "demo-2026-04-28-market-private-infra",
+        "demo-2026-04-28-products-ai-search",
+        "demo-2026-04-28-research-scenario-tests",
+        "demo-2026-04-28-policy-copyright-risk"
+      ],
+      "notes": "Seed run for the initial public demo issue."
+    }
+  ]
+}

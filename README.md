@@ -19,6 +19,8 @@ This stack is intentionally simple for the first version: fewer moving parts, fa
 - `styles.css` - visual system and responsive layout.
 - `app.js` - rendering and topic filters.
 - `data/digest.js` - replaceable daily digest data.
+- `data/memory/` - shared JSON memory for automation agents.
+- `docs/agent-memory.md` - rules for reading and updating agent memory.
 - `.nojekyll` - tells GitHub Pages to publish files as plain static assets.
 - `robots.txt` and `sitemap.xml` - basic search indexing metadata.
 - `404.html` - custom GitHub Pages not-found page.
@@ -35,6 +37,12 @@ Run all checks:
 
 ```bash
 npm run lint
+```
+
+Print the current agent-memory status:
+
+```bash
+npm run memory:status
 ```
 
 Format files:

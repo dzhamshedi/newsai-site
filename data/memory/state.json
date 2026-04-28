@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "project": "newsai-site",
+  "timezone": "Europe/Moscow",
+  "siteUrl": "https://dzhamshedi.github.io/newsai-site/",
+  "updatedAt": "2026-04-28T23:17:14+03:00",
+  "lastRun": {
+    "runId": "bootstrap-2026-04-28",
+    "type": "bootstrap",
+    "status": "completed",
+    "trigger": "manual",
+    "agent": "codex",
+    "startedAt": "2026-04-28T23:17:14+03:00",
+    "finishedAt": "2026-04-28T23:17:14+03:00",
+    "issueId": "demo-2026-04-28",
+    "notes": "Initialized project memory after GitHub Pages deployment."
+  },
+  "lastPublishedIssue": {
+    "issueId": "demo-2026-04-28",
+    "date": "2026-04-28",
+    "title": "Demo issue",
+    "url": "https://dzhamshedi.github.io/newsai-site/",
+    "publishedAt": "2026-04-28T23:17:14+03:00",
+    "itemCount": 7,
+    "isDemo": true
+  },
+  "nextExpectedRun": {
+    "cadence": "daily",
+    "date": "2026-04-29",
+    "timezone": "Europe/Moscow"
+  }
+}

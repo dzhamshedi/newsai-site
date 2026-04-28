@@ -8,6 +8,7 @@
     "lint:html": "htmlhint \"**/*.html\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:js": "eslint .",
+    "memory:status": "node scripts/memory-status.mjs",
     "format": "prettier . --write",
     "format:check": "prettier . --check"
   },
