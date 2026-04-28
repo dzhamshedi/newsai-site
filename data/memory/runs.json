@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-04-28T23:17:14+03:00",
+  "updatedAt": "2026-04-28T12:05:00+03:00",
   "runs": [
     {
       "runId": "bootstrap-2026-04-28",
@@ -27,6 +27,31 @@
         "demo-2026-04-28-policy-copyright-risk"
       ],
       "notes": "Seed run for the initial public demo issue."
+    },
+    {
+      "runId": "daily-2026-04-28T120000-msk",
+      "type": "daily",
+      "status": "completed",
+      "trigger": "manual",
+      "agent": "claude-cowork",
+      "startedAt": "2026-04-28T12:00:00+03:00",
+      "finishedAt": "2026-04-28T12:05:00+03:00",
+      "inputPaths": ["data/memory/state.json", "data/memory/published-items.json"],
+      "outputPaths": [
+        "data/digest.js",
+        "data/memory/state.json",
+        "data/memory/runs.json",
+        "data/memory/published-items.json"
+      ],
+      "publishedIssueId": "daily-2026-04-28",
+      "publishedItemIds": [
+        "daily-2026-04-28-research-deepseek-v4-pro-flash",
+        "daily-2026-04-28-products-openai-gpt55-new-leader",
+        "daily-2026-04-28-research-kimi-k26-open-weights",
+        "daily-2026-04-28-market-frontier-model-cost",
+        "daily-2026-04-28-research-hallucination-comparison"
+      ],
+      "notes": "First real daily issue. Parsed 3 articles from artificialanalysis.ai (Apr 21-24). Summarized and translated to Russian."
     }
   ]
 }

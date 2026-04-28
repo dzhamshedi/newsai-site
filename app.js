@@ -1,5 +1,22 @@
 (function () {
+  if (!window.NEWSAI_DIGEST) {
+    document.querySelector("#issue-title").textContent = "Данные выпуска не загружены";
+    document.querySelector("#issue-summary").textContent =
+      "Попробуйте обновить страницу или зайдите позже.";
+    return;
+  }
+
   const digest = window.NEWSAI_DIGEST;
+
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   const topicLabels = {
     products: "Продукты",
     policy: "Регулирование",
@@ -23,15 +40,18 @@
   let activeTopic = "all";
 
   function topicTag(topic) {
-    return `<span class="tag ${topic}">${topicLabels[topic] || topic}</span>`;
+    return '<span class="tag ' + esc(topic) + '">' + esc(topicLabels[topic] || topic) + "</span>";
   }
 
   function sourceMarkup(item) {
     if (!item.url) {
       return "";
     }
-
-    return `<a class="source-link" href="${item.url}" target="_blank" rel="noreferrer">Источник</a>`;
+    return (
+      '<a class="source-link" href="' +
+      esc(item.url) +
+      '" target="_blank" rel="noreferrer">Источник</a>'
+    );
   }
 
   function renderIssue() {
@@ -43,89 +63,116 @@
   }
 
   function renderLead() {
-    const item = digest.lead;
-
-    leadStory.innerHTML = `
-      <div class="headline-media">
-        <img src="${item.image}" alt="${item.imageAlt}">
-      </div>
-      <div class="headline-body">
-        <div class="meta-row">
-          ${topicTag(item.topic)}
-          <span>${item.source}</span>
-          <span>${item.readTime}</span>
-        </div>
-        <h2 id="lead-story-title">${item.title}</h2>
-        <p>${item.summary}</p>
-        ${sourceMarkup(item)}
-      </div>
-    `;
+    var item = digest.lead;
+    leadStory.innerHTML =
+      '<div class="headline-media">' +
+      '<img src="' +
+      esc(item.image) +
+      '" alt="' +
+      esc(item.imageAlt) +
+      '" loading="eager">' +
+      "</div>" +
+      '<div class="headline-body">' +
+      '<div class="meta-row">' +
+      topicTag(item.topic) +
+      "<span>" +
+      esc(item.source) +
+      "</span>" +
+      "<span>" +
+      esc(item.readTime) +
+      "</span>" +
+      "</div>" +
+      '<h2 id="lead-story-title">' +
+      esc(item.title) +
+      "</h2>" +
+      "<p>" +
+      esc(item.summary) +
+      "</p>" +
+      sourceMarkup(item) +
+      "</div>";
   }
 
   function renderRadar() {
     radarList.innerHTML = digest.radar
-      .map(
-        (item) => `
-        <div>
-          <dt>${item.value}</dt>
-          <dd>${item.label}</dd>
-        </div>
-      `
-      )
+      .map(function (item) {
+        return "<div><dt>" + esc(item.value) + "</dt><dd>" + esc(item.label) + "</dd></div>";
+      })
       .join("");
   }
 
   function renderSources() {
     sourceList.innerHTML = digest.sources
-      .map((source) => `<span class="source-chip">${source}</span>`)
+      .map(function (source) {
+        return '<span class="source-chip">' + esc(source) + "</span>";
+      })
       .join("");
   }
 
   function renderNews() {
-    const items =
+    var items =
       activeTopic === "all"
         ? digest.items
-        : digest.items.filter((item) => item.topic === activeTopic);
+        : digest.items.filter(function (item) {
+            return item.topic === activeTopic;
+          });
 
-    newsCount.textContent = `${items.length} ${items.length === 1 ? "материал" : "материалов"}`;
+    var count = items.length;
+    newsCount.textContent = count + " " + (count === 1 ? "материал" : "материалов");
     newsGrid.innerHTML = items
-      .map(
-        (item) => `
-        <article class="news-card">
-          <img src="${item.image}" alt="${item.imageAlt}">
-          <div class="news-card-body">
-            <div class="card-meta">
-              ${topicTag(item.topic)}
-              <span>${item.source}</span>
-            </div>
-            <h3>${item.title}</h3>
-            <p>${item.summary}</p>
-          </div>
-        </article>
-      `
-      )
+      .map(function (item) {
+        return (
+          '<article class="news-card">' +
+          '<img src="' +
+          esc(item.image) +
+          '" alt="' +
+          esc(item.imageAlt) +
+          '" loading="lazy">' +
+          '<div class="news-card-body">' +
+          '<div class="card-meta">' +
+          topicTag(item.topic) +
+          "<span>" +
+          esc(item.source) +
+          "</span>" +
+          "</div>" +
+          "<h3>" +
+          esc(item.title) +
+          "</h3>" +
+          "<p>" +
+          esc(item.summary) +
+          "</p>" +
+          sourceMarkup(item) +
+          "</div>" +
+          "</article>"
+        );
+      })
       .join("");
   }
 
   function renderSignals() {
     signalGrid.innerHTML = digest.signals
-      .map(
-        (item) => `
-        <article class="signal-card">
-          <span class="signal-accent" aria-hidden="true"></span>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
-        </article>
-      `
-      )
+      .map(function (item) {
+        return (
+          '<article class="signal-card">' +
+          '<span class="signal-accent" aria-hidden="true"></span>' +
+          "<h3>" +
+          esc(item.title) +
+          "</h3>" +
+          "<p>" +
+          esc(item.summary) +
+          "</p>" +
+          "</article>"
+        );
+      })
       .join("");
   }
 
   function bindFilters() {
-    filters.forEach((filter) => {
-      filter.addEventListener("click", () => {
+    filters.forEach(function (filter) {
+      filter.addEventListener("click", function () {
         activeTopic = filter.dataset.topic;
-        filters.forEach((item) => item.classList.toggle("is-active", item === filter));
+        filters.forEach(function (item) {
+          item.classList.toggle("is-active", item === filter);
+        });
         renderNews();
       });
     });

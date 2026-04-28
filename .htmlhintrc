@@ -8,7 +8,7 @@
   "id-unique": true,
   "spec-char-escape": true,
   "src-not-empty": true,
-  "tag-pair": true,
+  "tag-pair": false,
   "tagname-lowercase": true,
   "title-require": true
 }

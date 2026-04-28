@@ -3,26 +3,26 @@
   "project": "newsai-site",
   "timezone": "Europe/Moscow",
   "siteUrl": "https://dzhamshedi.github.io/newsai-site/",
-  "updatedAt": "2026-04-28T23:17:14+03:00",
+  "updatedAt": "2026-04-28T12:00:00+03:00",
   "lastRun": {
-    "runId": "bootstrap-2026-04-28",
-    "type": "bootstrap",
+    "runId": "daily-2026-04-28T120000-msk",
+    "type": "daily",
     "status": "completed",
     "trigger": "manual",
-    "agent": "codex",
-    "startedAt": "2026-04-28T23:17:14+03:00",
-    "finishedAt": "2026-04-28T23:17:14+03:00",
-    "issueId": "demo-2026-04-28",
-    "notes": "Initialized project memory after GitHub Pages deployment."
+    "agent": "claude-cowork",
+    "startedAt": "2026-04-28T12:00:00+03:00",
+    "finishedAt": "2026-04-28T12:05:00+03:00",
+    "issueId": "daily-2026-04-28",
+    "notes": "First real daily issue. Sources: Artificial Analysis articles from Apr 21-24. 4 items + 1 lead."
   },
   "lastPublishedIssue": {
-    "issueId": "demo-2026-04-28",
+    "issueId": "daily-2026-04-28",
     "date": "2026-04-28",
-    "title": "Demo issue",
+    "title": "GPT-5.5 возглавил рейтинг, DeepSeek вернулся",
     "url": "https://dzhamshedi.github.io/newsai-site/",
-    "publishedAt": "2026-04-28T23:17:14+03:00",
-    "itemCount": 7,
-    "isDemo": true
+    "publishedAt": "2026-04-28T12:05:00+03:00",
+    "itemCount": 5,
+    "isDemo": false
   },
   "nextExpectedRun": {
     "cadence": "daily",

@@ -3,6 +3,7 @@ Thumbs.db
 node_modules/
 dist/
 AGENTS.md
+CLAUDE.md
 .env
 .env.*
-!.env.example
+!.en
